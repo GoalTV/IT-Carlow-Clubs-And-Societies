@@ -1,0 +1,15 @@
+.home-bg {
+    background-image: url("https://hea.ie/assets/uploads/2017/04/Carlow_IT-1000x500.jpg");
+    background-color: #cccccc;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    min-height: 1000px;
+    max-height: auto;
+   }
+
+.home-bg-txt {
+
+    color: #ffffff;
+    text-align: center;
+    background-color:  rgba(0, 0, 0, 0.3);
