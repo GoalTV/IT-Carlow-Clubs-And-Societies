@@ -30,6 +30,9 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css">
         <script src="js/bootstrap.js"></script>
+
+        <!-- Fontawesome Icons -->
+        <script src="https://kit.fontawesome.com/637e7e9f05.js" crossorigin="anonymous"></script>
         </head>
 
         <header>
