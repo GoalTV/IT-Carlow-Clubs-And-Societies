@@ -1,4 +1,4 @@
-<?php   require($_SERVER['DOCUMENT_ROOT'].'/inc/register.php'); ?>
+<?php   require_once($_SERVER['DOCUMENT_ROOT'].'/inc/register.php'); ?>
   <div class="container py-5">
     <div class="row d-flex justify-content-center align-items-center">
       <div class="col">

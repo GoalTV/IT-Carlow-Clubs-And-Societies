@@ -32,14 +32,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if($stmt->execute()){
                 if($stmt->rowCount() == 1){
                     if($row = $stmt->fetch()){
-                        $id = $row["id"];
+                        $id = $row["user_id"];
                         $email = $row["email"];
                         $hashed_password = $row["password"];
                         if(password_verify($password, $hashed_password)){
                             session_start();
                             
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
+                            $_SESSION["user_id"] = $user_id;
                             $_SESSION["email"] = $email;                            
 
                             header("location: dashboard");

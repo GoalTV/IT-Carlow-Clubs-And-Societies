@@ -7,6 +7,9 @@
 <?php 
   session_start();
   require_once($_SERVER['DOCUMENT_ROOT'].'/inc/db.inc.php');
+  ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
   ?>
 
 
@@ -14,19 +17,40 @@
 <?php require_once($_SERVER['DOCUMENT_ROOT'].'/template/header_tpl.php'); //Calling Header ?>
 <body>
 
-        <?php //Calling Content from /template
-
+<?php
             if(!isset($_GET['page']) || $_GET['page'] == ''){
-                $page = 'home'; //If no page specified
-            } 
-            else 
-            {
+                $page = 'home';
+            } else {
                 $page = $_GET['page'];
             }
 
-            require_once($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); //Get Php files from /template
+            switch($page)
+            {
+                case 'home':
+                    require($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); 
+                    break;
+                case 'login':
+                    require($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); 
+                    break;
+                case 'register':
+                    require($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); 
+                    break;
+                case 'register-confirm':
+                    require($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); 
+                    break;
+                case 'logout':
+                    require($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); 
+                    break;
+                case 'logout-confirm':
+                    require($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); 
+                    break;
+                default:
+                require($_SERVER['DOCUMENT_ROOT'].'/template/' . '404' . '_tpl.php'); 
 
+            }
         ?>
+
+
 
     </body>
 
