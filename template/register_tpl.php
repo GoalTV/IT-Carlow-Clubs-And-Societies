@@ -1,3 +1,4 @@
+<?php   require($_SERVER['DOCUMENT_ROOT'].'/inc/register.php'); ?>
   <div class="container py-5">
     <div class="row d-flex justify-content-center align-items-center">
       <div class="col">
@@ -13,17 +14,19 @@
             <div class="col-xl-6">
               <div class="card-body p-md-5 text-black">
                 <h3 class="mb-5 text-uppercase">Clubs & Societies Sign Up</h3>
-
+                <form action="register" method="post">
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="f_name" class="form-control form-control-lg" />
+                      <input type="text" id="f_name" name="f_name" value="<?php echo $f_name; ?>" class="form-control form-control-lg <?php echo (!empty($f_name_err)) ? 'is-invalid' : ''; ?>" />
+                      <span class="invalid-feedback"><?php echo $f_name_err; ?></span>
                       <label class="form-label" for="f_name">First name</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="l_name" class="form-control form-control-lg" />
+                      <input type="text" id="l_name" name="l_name"  value="<?php echo $l_name; ?>" class="form-control form-control-lg <?php echo (!empty($l_name_err)) ? 'is-invalid' : ''; ?>" />
+                      <span class="invalid-feedback"><?php echo $l_name_err; ?></span>
                       <label class="form-label" for="l_name">Last name</label>
                     </div>
                   </div>
@@ -32,13 +35,15 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="password" id="password" class="form-control form-control-lg" />
+                      <input type="password" id="password" name="password"  value="<?php echo $password; ?>" class="form-control form-control-lg <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" />
+                      <span class="invalid-feedback"><?php echo $password_err; ?></span>
                       <label class="form-label" for="password">Password</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="password" id="confirm_password" class="form-control form-control-lg" />
+                      <input type="password" id="confirm_password" name="confirm_password"  value="<?php echo $confirm_password; ?>" class="form-control form-control-lg <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" />
+                      <span class="invalid-feedback"><?php echo $confirm_passwor_err; ?></span>
                       <label class="form-label" for="confirm_password">Confirm Password</label>
                     </div>
                   </div>
@@ -46,35 +51,35 @@
 
                 <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
 
-                  <h6 class="mb-0 me-4">Gender: </h6>
-
-                  <div class="form-check form-check-inline mb-0 me-4">
+                  <h6 class="mb-0 me-4 <?php echo (!empty($gender_err)) ? 'is-invalid' : ''; ?> ">Gender: </h6>
+                  <span class="invalid-feedback"><?php echo $gender_err; ?></span>
+                  <div  class="form-check form-check-inline mb-0 me-4 <?php echo (!empty($gender_err)) ? 'is-invalid' : ''; ?> ">
                     <input
-                      class="form-check-input"
+                      class="form-check-input <?php echo (!empty($gender_err)) ? 'is-invalid' : ''; ?>"
                       type="radio"
-                      name="inlineRadioOptions"
+                      name="gender"
                       id="femaleGender"
                       value="1"
                     />
                     <label class="form-check-label" for="femaleGender">Female</label>
                   </div>
 
-                  <div class="form-check form-check-inline mb-0 me-4">
+                  <div class="form-check form-check-inline mb-0 me-4 <?php echo (!empty($gender_err)) ? 'is-invalid' : ''; ?> ">
                     <input
-                      class="form-check-input"
+                      class="form-check-input <?php echo (!empty($gender_err)) ? 'is-invalid' : ''; ?>"
                       type="radio"
-                      name="inlineRadioOptions"
+                      name="gender"
                       id="maleGender"
                       value="2"
                     />
                     <label class="form-check-label" for="maleGender">Male</label>
                   </div>
 
-                  <div class="form-check form-check-inline mb-0">
+                  <div class="form-check form-check-inline mb-0 <?php echo (!empty($gender_err)) ? 'is-invalid' : ''; ?> ">
                     <input
-                      class="form-check-input"
+                      class="form-check-input <?php echo (!empty($gender_err)) ? 'is-invalid' : ''; ?>"
                       type="radio"
-                      name="inlineRadioOptions"
+                      name="gender"
                       id="otherGender"
                       value="3"
                     />
@@ -85,17 +90,19 @@
 
 
                 <div class="form-outline mb-4">
-                  <input type="date" id="dob" class="form-control form-control-lg" />
+                  <input type="date" id="dob" name="dob" value="<?php echo $dob; ?>" class="form-control form-control-lg <?php echo (!empty($dob_err)) ? 'is-invalid' : ''; ?>"  />
+                  <span class="invalid-feedback"><?php echo $dob_err; ?></span> 
                   <label class="form-label" for="dob">Date of Birth</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="s_id" class="form-control form-control-lg" />
+                  <input type="text" id="s_id" name="s_id" value="<?php echo $s_id; ?>" class="form-control form-control-lg <?php echo (!empty($s_id_err)) ? 'is-invalid' : ''; ?>"  />
                   <label class="form-label" for="s_id">Student ID</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="email" id="email" class="form-control form-control-lg" />
+                  <input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control form-control-lg <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" />
+                  <span class="invalid-feedback"><?php echo $email_err; ?></span>
                   <label class="form-label" for="email">Student Email</label>
                 </div>
 
@@ -104,16 +111,19 @@
 				
 					<div class="input-group phone-input">
 						<span class="input-group-btn">
-							<input type="number" name="p_country" id="p-country" value="353" class="form-control">
-						</span>
-						<input type="text" id="p_number" name="p_number" class="form-control" placeholder="0871234567" />
-					</div>
+							<input type="number" name="p_country" id="p_country" value="<?php echo $p_country; ?>" class="form-control <?php echo (!empty($p_country_err)) ? 'is-invalid' : ''; ?>"  placeholder="353">
+              <span class="invalid-feedback"><?php echo $p_country_err; ?></span> 
+            </span>
+						<input type="text" id="p_number" name="p_number" value="<?php echo $p_number; ?>" class="form-control <?php echo (!empty($p_number_err)) ? 'is-invalid' : ''; ?>" placeholder="0871234567" />
+            <span class="invalid-feedback"><?php echo $p_number_err; ?></span> 
+          </div>
 </div>
                 <label class="form-label" for="phone">Phone Number</label>
               </div>
                 <div class="form-group">
-                <input type="file" id="photo" class="form-control form-control-lg">
+                <input type="file" id="photo" name="photo" class="form-control form-control-lg <?php echo (!empty($photo_err)) ? 'is-invalid' : ''; ?>">
                 <label for="formFile" class="form-label">Student Photo</label>
+                <span class="invalid-feedback"><?php echo $photo_err; ?></span> 
                 </div>
 
                 <div class="accordion" id="accordionExample">
@@ -123,18 +133,31 @@
         Medical Declaration
       </button>
     </h2>
+    <span class="invalid-feedback">: <?php echo $m_d_1_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_2_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_3_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_4_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_5_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_6_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_7_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_8_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_9_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_10_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_11_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_12_err; ?></span>
+        <span class="invalid-feedback">: <?php echo $m_d_13_err; ?></span>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
       <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between align-items-center">
-  Asthma, wheezing, Respiratory?
+  Asthma, wheezing, Respiratory?  
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_1" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_1_err)) ? 'is-invalid' : ''; ?>" name="m_d_1" id="m_d_1" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_1" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_1_err)) ? 'is-invalid' : ''; ?>" name="m_d_1" id="m_d_1" value="1">
          No
         </label>
     </span>
@@ -143,11 +166,11 @@
   Bronchitis and/or shortness of breath?
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_2" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_2_err)) ? 'is-invalid' : ''; ?>" name="m_d_2" id="m_d_2" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_2" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_2_err)) ? 'is-invalid' : ''; ?>" name="m_d_2" id="m_d_2" value="1">
          No
         </label>
     </span>
@@ -156,11 +179,11 @@
   Physical disability or other disability?
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_3" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_3_err)) ? 'is-invalid' : ''; ?>" name="m_d_3" id="m_d_3" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_3" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_3_err)) ? 'is-invalid' : ''; ?>" name="m_d_3" id="m_d_3" value="1">
          No
         </label>
     </span>
@@ -169,11 +192,11 @@
   Are you pregnant?
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_4" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_4_err)) ? 'is-invalid' : ''; ?>" name="m_d_4" id="m_d_4" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_4" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_4_err)) ? 'is-invalid' : ''; ?>" name="m_d_4" id="m_d_4" value="1">
          No
         </label>
     </span>
@@ -182,11 +205,11 @@
   Do you smoke?   
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_5" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_5_err)) ? 'is-invalid' : ''; ?>" name="m_d_5" id="m_d_5" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_5" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_5_err)) ? 'is-invalid' : ''; ?>" name="m_d_5" id="m_d_5" value="1">
          No
         </label>
     </span>
@@ -195,11 +218,11 @@
   Epilepsy, seizures, fainting attacks or convulsions?
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_6" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_6_err)) ? 'is-invalid' : ''; ?>" name="m_d_6" id="m_d_6" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_6" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_6_err)) ? 'is-invalid' : ''; ?>" name="m_d_6" id="m_d_6" value="1">
          No
         </label>
     </span>
@@ -208,11 +231,11 @@
   Any other neurological problem?  
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_7" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_7_err)) ? 'is-invalid' : ''; ?>" name="m_d_7" id="m_d_7" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_7" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_7_err)) ? 'is-invalid' : ''; ?>" name="m_d_7" id="m_d_7" value="1">
          No
         </label>
     </span>
@@ -221,11 +244,11 @@
   Recurring migraine headaches, Blackouts?  
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_8" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_8_err)) ? 'is-invalid' : ''; ?>" name="m_d_8" id="m_d_8" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_8" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_8_err)) ? 'is-invalid' : ''; ?>" name="m_d_8" id="m_d_8" value="1">
          No
         </label>
     </span>
@@ -234,11 +257,11 @@
   Recurring joint, mobility or back problems/surgery?  
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_9" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_9_err)) ? 'is-invalid' : ''; ?>" name="m_d_9" id="m_d_9" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_9" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_9_err)) ? 'is-invalid' : ''; ?>" name="m_d_9" id="m_d_9" value="1">
          No
         </label>
     </span>
@@ -247,11 +270,11 @@
   Diabetes?
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_10" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_10_err)) ? 'is-invalid' : ''; ?>" name="m_d_10" id="m_d_10" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_10" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_10_err)) ? 'is-invalid' : ''; ?>" name="m_d_10" id="m_d_10" value="1">
          No
         </label>
     </span>
@@ -260,11 +283,11 @@
   Any hearing loss or problems with balance?
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_11" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_11_err)) ? 'is-invalid' : ''; ?>" name="m_d_11" id="m_d_11" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_11" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_11_err)) ? 'is-invalid' : ''; ?>" name="m_d_11" id="m_d_11" value="1">
          No
         </label>
     </span>
@@ -273,11 +296,11 @@
   Any serious eyesight issues?
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_12" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_12_err)) ? 'is-invalid' : ''; ?>" name="m_d_12" id="m_d_12" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_12" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_12_err)) ? 'is-invalid' : ''; ?>" name="m_d_12" id="m_d_12" value="1">
          No
         </label>
     </span>
@@ -286,11 +309,11 @@
   Drug or alcohol dependency?      
     <span>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_13" value="1">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_13_err)) ? 'is-invalid' : ''; ?>" name="m_d_13" id="m_d_13" value="2">
           Yes
         </label>
         <label>
-          <input type="radio" class="form-check-input" name="optionsRadios" id="m_d_13" value="0">
+          <input type="radio" class="form-check-input <?php echo (!empty($m_d_13_err)) ? 'is-invalid' : ''; ?>" name="m_d_13" id="m_d_13" value="1">
          No
         </label>
     </span>
@@ -309,7 +332,7 @@
       <div class="accordion-body">
       <div class="form-group">
       <label for="m_c">Please Provide any Medical Condiotions if any</label>
-      <textarea class="form-control" id="m_c" rows="14"></textarea>
+      <textarea class="form-control" value="<?php echo $m_c; ?>" id="m_c" name="m_c" rows="14"></textarea>
     </div>
       </div>
     </div>
@@ -324,7 +347,8 @@
       <div class="accordion-body">
 
       <div class="form-outline">
-                      <input type="text" id="d_i_n" class="form-control form-control-lg" />
+                      <input type="text" id="d_i_n" name="d_i_n" value="<?php echo $d_i_n; ?>" class="form-control form-control-lg <?php echo (!empty($d_i_n_err)) ? 'is-invalid' : ''; ?>" />
+                      <span class="invalid-feedback">: <?php echo $d_i_n_err; ?></span>
                       <label class="form-label" for="d_i_n">Doctor's Full Name</label>
                     </div>
 
@@ -333,21 +357,25 @@
 				
 					<div class="input-group phone-input">
 						<span class="input-group-btn">
-							<input type="number" name="d_i_p_c" id="d_i_p_c" value="353" class="form-control">
-						</span>
-						<input type="text" id="d_i_p_n" name="d_i_p_n" class="form-control" placeholder="0871234567" />
-					</div>
+							<input type="number" name="d_i_p_c" id="d_i_p_c" name="d_i_p_c" placeholder="353" value="<?php echo $d_i_p_c; ?>" class="form-control <?php echo (!empty($d_i_p_c_err)) ? 'is-invalid' : ''; ?>">
+              <span class="invalid-feedback">: <?php echo $d_i_p_c_err; ?></span>
+            </span>
+						<input type="text" id="d_i_p_n" name="d_i_p_n" value="<?php echo $d_i_p_n; ?>" class="form-control <?php echo (!empty($d_i_p_n_err)) ? 'is-invalid' : ''; ?>" placeholder="0871234567" />
+            <span class="invalid-feedback">: <?php echo $d_i_p_n_err; ?></span>
+          </div>
 </div>
                 <label class="form-label" for="phone">Doctor's Phone Number</label>
               </div>
 
               <div class="form-outline">
-                      <input type="text" id="n_o_k_f_n" class="form-control form-control-lg" />
+                      <input type="text" id="n_o_k_f_n" name="n_o_k_f_n" value="<?php echo $n_o_k_f_n; ?>" class="form-control form-control-lg <?php echo (!empty($n_o_k_f_n_err)) ? 'is-invalid' : ''; ?>" />
+                      <span class="invalid-feedback">: <?php echo $n_o_k_f_n_err; ?></span>
                       <label class="form-label" for="n_o_k_f_n">Next of Kim First Name</label>
                     </div>
 
                     <div class="form-outline">
-                      <input type="text" id="n_o_k_l_n" class="form-control form-control-lg" />
+                      <input type="text" id="n_o_k_l_n" name="n_o_k_l_n" value="<?php echo $n_o_k_l_n; ?>" class="form-control form-control-lg <?php echo (!empty($n_o_k_l_n_err)) ? 'is-invalid' : ''; ?>"  />
+                      <span class="invalid-feedback">: <?php echo $n_o_k_l_n_err; ?></span>
                       <label class="form-label" for="n_o_k_l_n">Next of Kim Last Name</label>
                     </div>
 
@@ -356,16 +384,19 @@
 				
 					<div class="input-group phone-input">
 						<span class="input-group-btn">
-							<input type="number" name="n_o_k_p_c" id="n_o_k_p_c" value="353" class="form-control">
-						</span>
-						<input type="text" id="n_o_k_p_n" name="n_o_k_p_n" class="form-control" placeholder="0871234567" />
-					</div>
+							<input type="number" name="n_o_k_p_c" id="n_o_k_p_c" placeholder="353"  value="<?php echo $n_o_k_p_c; ?>" class="form-control <?php echo (!empty($n_o_k_p_c_err)) ? 'is-invalid' : ''; ?>">
+              <span class="invalid-feedback">: <?php echo $n_o_k_p_c_err; ?></span>
+            </span>
+						<input type="text" name="n_o_k_p_n" name="n_o_k_p_n" value="<?php echo $n_o_k_p_n; ?>" class="form-control <?php echo (!empty($n_o_k_p_n_err)) ? 'is-invalid' : ''; ?>" placeholder="0871234567" />
+            <span class="invalid-feedback">: <?php echo $n_o_k_p_n_err; ?></span>
+          </div>
 </div>
                 <label class="form-label" for="phone">Next of Kim Phone Number</label>
               </div>
 
               <div class="form-outline">
-                      <input type="text" id="n_o_k_r_s" class="form-control form-control-lg" />
+                      <input type="text" id="n_o_k_r_s" name="n_o_k_r_s" value="<?php echo $n_o_k_r_s; ?>" class="form-control form-control-lg <?php echo (!empty($n_o_k_r_s_err)) ? 'is-invalid' : ''; ?>" />
+                      <span class="invalid-feedback">: <?php echo $n_o_k_r_s_err; ?></span>
                       <label class="form-label" for="n_o_k_l_n">Next of Kim Relationship</label>
                     </div>
 
@@ -375,10 +406,9 @@
 </div>
 
                 <div class="d-flex justify-content-end pt-3">
-                  <button type="button" class="btn btn-light btn-lg">Reset all</button>
-                  <button type="button" class="btn btn-warning btn-lg ms-2">Register</button>
+                  <button type="reset" class="btn btn-light btn-lg">Reset all</button>
+                  <button type="submit" class="btn btn-warning btn-lg ms-2">Register</button>
                 </div>
-
               </div>
             </div>
           </div>
@@ -386,3 +416,4 @@
       </div>
     </div>
   </div>
+  </form>

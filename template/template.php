@@ -4,6 +4,11 @@
 *     @Janusz Czeropski C00176885@itcarlow.ie 
 *     2022
 -->
+<?php 
+  session_start();
+  require_once($_SERVER['DOCUMENT_ROOT'].'/inc/db.inc.php');
+  ?>
+
 
 <html>
 <?php require_once($_SERVER['DOCUMENT_ROOT'].'/template/header_tpl.php'); //Calling Header ?>
