@@ -1,9 +1,4 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // Define variables and initialize with empty values
 $email = $password = $confirm_password = $f_name = $l_name = $gender = $s_id = $p_country = $p_number = $dob = $m_d_1 = $m_d_2 = $m_d_3 = $m_d_4 = $m_d_5 = $m_d_6 = $m_d_7 = $m_d_8 = $m_d_9 = $m_d_10 = $m_d_11 = $m_d_12 = $m_d_13 = $m_c = $d_i_n = $d_i_p_c = $d_i_p_n = $n_o_k_f_n = $n_o_k_l_n = $n_o_k_p_c = $n_o_k_p_n = $n_o_k_r_s = $registred = "";
 $email_err = $password_err = $confirm_password_err = $f_name_err = $l_name_err = $gender_err = $p_number_err = $s_id_err = $p_countr_err = $p_number_err = $dob_err = $m_d_1_err = $m_d_2_err = $m_d_3_err = $m_d_4_err = $m_d_5_err = $m_d_6_err = $m_d_7_err = $m_d_8_err = $m_d_9_err = $m_d_10_err = $m_d_11_err = $m_d_12_err = $m_d_13_err = $m_c_err = $d_i_n_err = $d_i_p_c_err = $d_i_p_n_err = $n_o_k_f_n_err = $n_o_k_l_n_err = $n_o_k_p_c_err = $n_o_k_p_n_err = $n_o_k_r_s_err = "";
@@ -355,7 +350,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 // Redirect to login page
-                header("location: register");
+                header("location: register-confirm");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
