@@ -12,7 +12,7 @@ $email_err = $password_err = $confirm_password_err = $f_name_err = $l_name_err =
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
-    // Validate username
+    // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter a email.";
     } elseif(!preg_match('/^\S+@\S+\.\S+$/', trim($_POST["email"]))){
