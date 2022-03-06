@@ -18,14 +18,14 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input max="50" type="text" id="f_name" name="f_name" value="<?php echo $f_name; ?>" class="form-control form-control-lg <?php echo (!empty($f_name_err)) ? 'is-invalid' : ''; ?>" required />
+                      <input type="text" id="f_name" name="f_name" value="<?php echo $f_name; ?>" class="form-control form-control-lg <?php echo (!empty($f_name_err)) ? 'is-invalid' : ''; ?>" required />
                       <span class="invalid-feedback"><?php echo $f_name_err; ?></span>
                       <label class="form-label" for="f_name">First name</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input max="50" type="text" id="l_name" name="l_name"  value="<?php echo $l_name; ?>" class="form-control form-control-lg <?php echo (!empty($l_name_err)) ? 'is-invalid' : ''; ?>" required />
+                      <input type="text" id="l_name" name="l_name"  value="<?php echo $l_name; ?>" class="form-control form-control-lg <?php echo (!empty($l_name_err)) ? 'is-invalid' : ''; ?>" required />
                       <span class="invalid-feedback"><?php echo $l_name_err; ?></span>
                       <label class="form-label" for="l_name">Last name</label>
                     </div>
@@ -35,14 +35,14 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input min="6" max="32" type="password" id="password" name="password"  value="<?php echo $password; ?>" class="form-control form-control-lg <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" required />
+                      <input type="password" id="password" name="password"  value="<?php echo $password; ?>" class="form-control form-control-lg <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" required />
                       <span class="invalid-feedback"><?php echo $password_err; ?></span>
                       <label class="form-label" for="password">Password</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input min="6" max="32" type="password" id="confirm_password" name="confirm_password"  value="<?php echo $confirm_password; ?>" class="form-control form-control-lg <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?> required" />
+                      <input type="password" id="confirm_password" name="confirm_password"  value="<?php echo $confirm_password; ?>" class="form-control form-control-lg <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?> required" />
                       <span class="invalid-feedback"><?php echo $confirm_passwor_err; ?></span>
                       <label class="form-label" for="confirm_password">Confirm Password</label>
                     </div>
@@ -96,12 +96,12 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input max="9" type="text" id="s_id" name="s_id" value="<?php echo $s_id; ?>" class="form-control form-control-lg <?php echo (!empty($s_id_err)) ? 'is-invalid' : ''; ?>" required />
+                  <input type="text" id="s_id" name="s_id" value="<?php echo $s_id; ?>" class="form-control form-control-lg <?php echo (!empty($s_id_err)) ? 'is-invalid' : ''; ?>" required />
                   <label class="form-label" for="s_id">Student ID</label>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input max="320" type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control form-control-lg <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" required />
+                  <input type="email" id="email" name="email" value="<?php echo $email; ?>" class="form-control form-control-lg <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" required />
                   <span class="invalid-feedback"><?php echo $email_err; ?></span>
                   <label class="form-label" for="email">Student Email</label>
                 </div>
@@ -111,10 +111,10 @@
 				
 					<div class="input-group phone-input">
 						<span class="input-group-btn">
-							<input max="3" type="number" name="p_country" id="p_country" value="<?php echo $p_country; ?>" class="form-control <?php echo (!empty($p_country_err)) ? 'is-invalid' : ''; ?>"  placeholder="353" required/>
+							<input type="number" name="p_country" id="p_country" value="<?php echo $p_country; ?>" class="form-control <?php echo (!empty($p_country_err)) ? 'is-invalid' : ''; ?>"  placeholder="353" required/>
               <span class="invalid-feedback"><?php echo $p_country_err; ?></span> 
             </span>
-						<input max="15" type="text" id="p_number" name="p_number" value="<?php echo $p_number; ?>" class="form-control <?php echo (!empty($p_number_err)) ? 'is-invalid' : ''; ?>" placeholder="0871234567" required />
+						<input type="text" id="p_number" name="p_number" value="<?php echo $p_number; ?>" class="form-control <?php echo (!empty($p_number_err)) ? 'is-invalid' : ''; ?>" placeholder="0871234567" required />
             <span class="invalid-feedback"><?php echo $p_number_err; ?></span> 
           </div>
 </div>
@@ -332,7 +332,7 @@
       <div class="accordion-body">
       <div class="form-group">
       <label for="m_c">Please Provide any Medical Condiotions if any</label>
-      <textarea max="500" class="form-control" value="<?php echo $m_c; ?>" id="m_c" name="m_c" rows="14"></textarea>
+      <textarea class="form-control" value="<?php echo $m_c; ?>" id="m_c" name="m_c" rows="14"></textarea>
     </div>
       </div>
     </div>
@@ -347,7 +347,7 @@
       <div class="accordion-body">
 
       <div class="form-outline">
-                      <input max="100" type="text" id="d_i_n" name="d_i_n" value="<?php echo $d_i_n; ?>" class="form-control form-control-lg <?php echo (!empty($d_i_n_err)) ? 'is-invalid' : ''; ?>" required />
+                      <input type="text" id="d_i_n" name="d_i_n" value="<?php echo $d_i_n; ?>" class="form-control form-control-lg <?php echo (!empty($d_i_n_err)) ? 'is-invalid' : ''; ?>" required />
                       <span class="invalid-feedback">: <?php echo $d_i_n_err; ?></span>
                       <label class="form-label" for="d_i_n">Doctor's Full Name</label>
                     </div>
@@ -357,10 +357,10 @@
 				
 					<div class="input-group phone-input">
 						<span class="input-group-btn">
-							<input max="3" type="number" name="d_i_p_c" id="d_i_p_c" name="d_i_p_c" placeholder="353" value="<?php echo $d_i_p_c; ?>" class="form-control <?php echo (!empty($d_i_p_c_err)) ? 'is-invalid' : ''; ?>" requried />
+							<input type="number" name="d_i_p_c" id="d_i_p_c" name="d_i_p_c" placeholder="353" value="<?php echo $d_i_p_c; ?>" class="form-control <?php echo (!empty($d_i_p_c_err)) ? 'is-invalid' : ''; ?>" requried />
               <span class="invalid-feedback">: <?php echo $d_i_p_c_err; ?></span>
             </span>
-						<input max="15" type="text" id="d_i_p_n" name="d_i_p_n" value="<?php echo $d_i_p_n; ?>" class="form-control <?php echo (!empty($d_i_p_n_err)) ? 'is-invalid' : ''; ?>" placeholder="0871234567" required />
+						<input type="text" id="d_i_p_n" name="d_i_p_n" value="<?php echo $d_i_p_n; ?>" class="form-control <?php echo (!empty($d_i_p_n_err)) ? 'is-invalid' : ''; ?>" placeholder="0871234567" required />
             <span class="invalid-feedback">: <?php echo $d_i_p_n_err; ?></span>
           </div>
 </div>
@@ -368,13 +368,13 @@
               </div>
 
               <div class="form-outline">
-                      <input max="50" type="text" id="n_o_k_f_n" name="n_o_k_f_n" value="<?php echo $n_o_k_f_n; ?>" class="form-control form-control-lg <?php echo (!empty($n_o_k_f_n_err)) ? 'is-invalid' : ''; ?>" required />
+                      <input type="text" id="n_o_k_f_n" name="n_o_k_f_n" value="<?php echo $n_o_k_f_n; ?>" class="form-control form-control-lg <?php echo (!empty($n_o_k_f_n_err)) ? 'is-invalid' : ''; ?>" required />
                       <span class="invalid-feedback">: <?php echo $n_o_k_f_n_err; ?></span>
                       <label class="form-label" for="n_o_k_f_n">Next of Kim First Name</label>
                     </div>
 
                     <div class="form-outline">
-                      <input max="50" type="text" id="n_o_k_l_n" name="n_o_k_l_n" value="<?php echo $n_o_k_l_n; ?>" class="form-control form-control-lg <?php echo (!empty($n_o_k_l_n_err)) ? 'is-invalid' : ''; ?>" required  />
+                      <input type="text" id="n_o_k_l_n" name="n_o_k_l_n" value="<?php echo $n_o_k_l_n; ?>" class="form-control form-control-lg <?php echo (!empty($n_o_k_l_n_err)) ? 'is-invalid' : ''; ?>" required  />
                       <span class="invalid-feedback">: <?php echo $n_o_k_l_n_err; ?></span>
                       <label class="form-label" for="n_o_k_l_n">Next of Kim Last Name</label>
                     </div>
@@ -384,10 +384,10 @@
 				
 					<div class="input-group phone-input">
 						<span class="input-group-btn">
-							<input max="3" type="number" name="n_o_k_p_c" id="n_o_k_p_c" placeholder="353"  value="<?php echo $n_o_k_p_c; ?>" class="form-control <?php echo (!empty($n_o_k_p_c_err)) ? 'is-invalid' : ''; ?>" required />
+							<input type="number" name="n_o_k_p_c" id="n_o_k_p_c" placeholder="353"  value="<?php echo $n_o_k_p_c; ?>" class="form-control <?php echo (!empty($n_o_k_p_c_err)) ? 'is-invalid' : ''; ?>" required />
               <span class="invalid-feedback">: <?php echo $n_o_k_p_c_err; ?></span>
             </span>
-						<input max="15" type="text" name="n_o_k_p_n" name="n_o_k_p_n" value="<?php echo $n_o_k_p_n; ?>" class="form-control <?php echo (!empty($n_o_k_p_n_err)) ? 'is-invalid' : ''; ?>" placeholder="0871234567" required />
+						<input type="text" name="n_o_k_p_n" name="n_o_k_p_n" value="<?php echo $n_o_k_p_n; ?>" class="form-control <?php echo (!empty($n_o_k_p_n_err)) ? 'is-invalid' : ''; ?>" placeholder="0871234567" required />
             <span class="invalid-feedback">: <?php echo $n_o_k_p_n_err; ?></span>
           </div>
 </div>
@@ -395,7 +395,7 @@
               </div>
 
               <div class="form-outline">
-                      <input max="50" type="text" id="n_o_k_r_s" name="n_o_k_r_s" value="<?php echo $n_o_k_r_s; ?>" class="form-control form-control-lg <?php echo (!empty($n_o_k_r_s_err)) ? 'is-invalid' : ''; ?>" required />
+                      <input type="text" id="n_o_k_r_s" name="n_o_k_r_s" value="<?php echo $n_o_k_r_s; ?>" class="form-control form-control-lg <?php echo (!empty($n_o_k_r_s_err)) ? 'is-invalid' : ''; ?>" required />
                       <span class="invalid-feedback">: <?php echo $n_o_k_r_s_err; ?></span>
                       <label class="form-label" for="n_o_k_l_n">Next of Kim Relationship</label>
                     </div>
