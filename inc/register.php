@@ -1,4 +1,10 @@
 <?php
+
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: dashboard");
+    exit;
+}
+
 // Define variables and initialize with empty values
 $email = $password = $confirm_password = $f_name = $l_name = $gender = $s_id = $p_country = $p_number = $dob = $m_d_1 = $m_d_2 = $m_d_3 = $m_d_4 = $m_d_5 = $m_d_6 = $m_d_7 = $m_d_8 = $m_d_9 = $m_d_10 = $m_d_11 = $m_d_12 = $m_d_13 = $m_c = $d_i_n = $d_i_p_c = $d_i_p_n = $n_o_k_f_n = $n_o_k_l_n = $n_o_k_p_c = $n_o_k_p_n = $n_o_k_r_s = $registred = "";
 $email_err = $password_err = $confirm_password_err = $f_name_err = $l_name_err = $gender_err = $p_number_err = $s_id_err = $p_countr_err = $p_number_err = $dob_err = $m_d_1_err = $m_d_2_err = $m_d_3_err = $m_d_4_err = $m_d_5_err = $m_d_6_err = $m_d_7_err = $m_d_8_err = $m_d_9_err = $m_d_10_err = $m_d_11_err = $m_d_12_err = $m_d_13_err = $m_c_err = $d_i_n_err = $d_i_p_c_err = $d_i_p_n_err = $n_o_k_f_n_err = $n_o_k_l_n_err = $n_o_k_p_c_err = $n_o_k_p_n_err = $n_o_k_r_s_err = "";
@@ -72,11 +78,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Validate gender
-    if(empty(trim($_POST["gender"]))){
+   if(empty(trim($_POST["gender"]))){
         $gender_err = "Please select gender.";     
     } else{
         $gender = trim($_POST["gender"]);
-    }
+    } 
 
         // Validate Student Number
         if(empty(trim($_POST["s_id"]))){
@@ -273,15 +279,70 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
        $n_o_k_r_s = trim($_POST["n_o_k_r_s"]);
    }
 
+
+   //img upload
+$str=rand();
+$string = md5($str);  //Random String for img name
+$target_dir = "img/user_profile/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+$newFileName = $target_dir . $string .'.'. pathinfo($_FILES["fileToUpload"]["name"] ,PATHINFO_EXTENSION); //get the file extension and append it to the new file name
+
+
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
+}
+
+// Check if file already exists
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+}
+
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+  echo "Sorry, your file is too large.";
+  $uploadOk = 0;
+}
+
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk = 0;
+}
+
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],  $newFileName)) {
+    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  } else {
+    echo "Sorry, there was an error uploading your file.";
+  }
+}
+
     // Check input errors before inserting in database
     if(empty($email_err) && empty($password_err) && empty($confirm_password_err) && empty($f_name_err) && empty($l_name_err) && empty($gender_err) && empty($s_id_err) && empty($p_country_err) && empty($p_number_err) && empty($dob_err) && empty($m_d_1_err) && empty($m_d_2_err) && empty($m_d_3_err) && empty($m_d_4_err) && empty($m_d_5_err) && empty($m_d_6_err) && empty($m_d_7_err) && empty($m_d_8_err) && empty($m_d_9_err) && empty($m_d_10_err) && empty($m_d_11_err) && empty($m_d_12_err) && empty($m_d_13_err) && empty($d_i_n_err) && empty($d_i_p_c_err) && empty($d_i_p_n_err) && empty($n_o_k_f_n_err) && empty($n_o_k_l_n_err) && empty($n_o_k_p_c_err) && empty($n_o_k_p_n_err) && empty($n_o_k_r_s_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (email, password, f_name, l_name, gender, s_id, p_country, p_number, dob, m_d_1, m_d_2, m_d_3, m_d_4, m_d_5, m_d_6, m_d_7, m_d_8, m_d_9, m_d_10, m_d_11, m_d_12, m_d_13, m_c, d_i_n, d_i_p_c, d_i_p_n, n_o_k_f_n, n_o_k_l_n, n_o_k_p_c, n_o_k_p_n, n_o_k_r_s) VALUES (:email, :password, :f_name, :l_name, :gender, :s_id, :p_country, :p_number, :dob, :m_d_1, :m_d_2, :m_d_3, :m_d_4, :m_d_5, :m_d_6, :m_d_7, :m_d_8, :m_d_9, :m_d_10, :m_d_11, :m_d_12, :m_d_13, :m_c, :d_i_n, :d_i_p_c, :d_i_p_n, :n_o_k_f_n, :n_o_k_l_n, :n_o_k_p_c, :n_o_k_p_n, :n_o_k_r_s)";
+        $sql = "INSERT INTO users (email, image, password, f_name, l_name, gender, s_id, p_country, p_number, dob, m_d_1, m_d_2, m_d_3, m_d_4, m_d_5, m_d_6, m_d_7, m_d_8, m_d_9, m_d_10, m_d_11, m_d_12, m_d_13, m_c, d_i_n, d_i_p_c, d_i_p_n, n_o_k_f_n, n_o_k_l_n, n_o_k_p_c, n_o_k_p_n, n_o_k_r_s) VALUES (:email, :image, :password, :f_name, :l_name, :gender, :s_id, :p_country, :p_number, :dob, :m_d_1, :m_d_2, :m_d_3, :m_d_4, :m_d_5, :m_d_6, :m_d_7, :m_d_8, :m_d_9, :m_d_10, :m_d_11, :m_d_12, :m_d_13, :m_c, :d_i_n, :d_i_p_c, :d_i_p_n, :n_o_k_f_n, :n_o_k_l_n, :n_o_k_p_c, :n_o_k_p_n, :n_o_k_r_s)";
          
         if($stmt = $pdo->prepare($sql)){
             // Bind variables to the prepared statement as parameters
             $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
+            $stmt->bindParam(":image", $param_image, PDO::PARAM_STR); //image storage path + name
             $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
             $stmt->bindParam(":f_name", $param_f_name, PDO::PARAM_STR);
             $stmt->bindParam(":l_name", $param_l_name, PDO::PARAM_STR);
@@ -315,6 +376,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             // Set parameters
             $param_email = $email;
+            $param_image = $newFileName;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             $param_f_name = $f_name;
             $param_l_name = $l_name;

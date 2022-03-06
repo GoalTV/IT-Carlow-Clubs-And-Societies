@@ -7,9 +7,6 @@
 <?php 
   session_start();
   require_once($_SERVER['DOCUMENT_ROOT'].'/inc/db.inc.php');
-  ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
   ?>
 
 
@@ -42,6 +39,9 @@ error_reporting(E_ALL);
                     require($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); 
                     break;
                 case 'logout-confirm':
+                    require($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); 
+                    break;
+                case 'dashboard':
                     require($_SERVER['DOCUMENT_ROOT'].'/template/' . $page . '_tpl.php'); 
                     break;
                 default:
